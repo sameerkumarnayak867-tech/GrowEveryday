@@ -230,6 +230,7 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 @media(max-width:768px){
     nav{
         flex-direction:column;
+        position: static;
     }
     .menu{
         flex-direction: column;
