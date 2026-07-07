@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {background-color: #dff6dd;
 text-align: center;
 font-family: 'Poppins',sans-serif;
@@ -58,6 +63,7 @@ p{font-size: 18px;}
 .container{
     max-width: 800px;
     margin: auto;
+    padding: 0 15px;
 }
 nav{background-color: darkgreen;
 color: white;
@@ -242,7 +248,9 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         align-items: center;
     }
     .card{
-        width: 90%;
+        width: 100%;
+        max-width: 340;
+        margin: 15px auto;
     }
     .hero{
         padding: 25px;
