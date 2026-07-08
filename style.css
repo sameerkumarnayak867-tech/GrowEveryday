@@ -283,16 +283,19 @@ box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     font-weight: bold;
 }
 .dark{
-    background: #1b1b1b;
+    background: #121212;
     color: white;
 }
-.dark .cark{
-    background: #2b2b2b;
+.dark .hero,
+.dark .card,
+.dark .quote-box,
+.dark .features,
+.dark .stat-box{
+    background: #1f1f1f;
     color: white;
 }
-.dark nav{
-    background: black;
-}
-.dark .hero{
-    background: #2b2b2b;
+.dark h1,
+.dark h2,
+.dark h3{
+    color: #7cfc98;
 }
