@@ -83,10 +83,21 @@ It comes from what you do consistently."
             <p>1 Day</p>
         </div>
         <div class="card">
+
             <div class="icon">📖</div>
-            <h2>📖 Journal</h2>
-            <p>Write today's thoughts...</p>
-            <button>Open Journal</button>
+
+            <h2>Daily Journal</h2>
+
+            <textarea
+            id="journalText"
+            placeholder="Write today's thoughts..."
+            ></textarea>
+
+            <button onclick="saveJournal()">
+
+                Save Journal
+                
+            </button>
         </div>
         <div class="card">
             <div class="icon">🏃</div>

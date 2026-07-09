@@ -1,4 +1,17 @@
 console.log("GrowEveryday Loaded Successfully 🌱");
+
+window.onload = function(){
+
+    let savedJournal =
+    localStorage.getItem("journal");
+
+    if(savedJournal){
+
+        document.getElementById("journalText").value =
+        savedJournal;
+        
+    }
+}
 let savedTheme =
 localStorage.getItem("theme");
 
@@ -47,7 +60,20 @@ function toggleTheme(){
 
     }else{
 
-        theneBtn.innerText = "🌙 Dark Mode";
+        themeBtn.innerText = "🌙 Dark Mode";
     }
 
+}
+
+function saveJournal(){
+
+    let text =
+    document.getElementById("journalText").value;
+
+    localStorage.setItem(
+        "journal",
+        text
+    );
+
+    alert("Journal Saved ✅");
 }
