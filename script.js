@@ -11,7 +11,7 @@ window.onload = function(){
         savedJournal;
         
     }
-}
+
 let savedTheme =
 localStorage.getItem("theme");
 
@@ -26,6 +26,7 @@ if(savedTheme){
         themeBtn.innerText = "☀️ Light Mode";
     }
 }
+};
 function welcomeUser() {
     alert("Welcome to GrowEveryday 🌱");
 }
@@ -86,7 +87,7 @@ let quotes = [
 
 "हर दिन एक नई शुरुआत है।",
 
-"छोटे कदम बड़ी मंज़िल तक ले जाते हैं।"
+"छोटे कदम बड़ी मंज़िल तक ले जाते हैं।",
 
 "हे पार्थ, आज अपने मन से नहीं, अपने धर्म से निर्णय लो।",
 
@@ -165,3 +166,35 @@ function nextQuote(){
     document.getElementById("quoteText").innerText =
     quotes[currentQuote];
 }
+
+let time = 1500;
+
+let timerRunning = false;
+
+function startTimer(){
+
+    if(timerRunning){
+        return;
+    }
+
+    timerRunning = true;
+
+    setInterval(function(){
+
+        if(timerRunning){
+
+            time--;
+
+            let minutes =
+            Math.floor(time / 60);
+
+            let seconds =
+            time % 60;
+
+            document.getElementById("timer").innerText =
+            minutes + ":" + seconds;
+        }
+    },1000);
+    }
+
+
