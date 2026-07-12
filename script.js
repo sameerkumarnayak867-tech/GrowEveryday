@@ -11,6 +11,17 @@ window.onload = function(){
         savedJournal;
         
     }
+    document.getElementById("habit1").checked =
+    localStorage.getItem("habit1") === "true";
+
+    document.getElementById("habit2").checked =
+    localStorage.getItem("habit2") === "true";
+
+    document.getElementById("habit3").checked =
+    localStorage.getItem("habit3") === "true";
+
+    document.getElementById("habit4").checked =
+    localStorage.getItem("habit4") === "true";
 
 let savedTheme =
 localStorage.getItem("theme");
@@ -196,5 +207,19 @@ function startTimer(){
         }
     },1000);
     }
+
+    function saveHabits(){
+        let h1=document.getElementById("habit1").checked;
+        let h2=document.getElementById("habit2").checked;
+        let h3=document.getElementById("habit3").checked;
+        let h4=document.getElementById("habit4").checked;
+
+        localStorage.setItem("habit1",h1);
+        localStorage.setItem("habit2",h2);
+        localStorage.setItem("habit3",h3);
+        localStorage.setItem("habit4",h4);
+        alert("Habits Saved ✅");
+    }
+
 
 

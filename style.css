@@ -327,3 +327,13 @@ textarea{
 
     border: 2px solid #555;
 }
+label{
+    display: block;
+    font-size: 18px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+input[type="checkbox"]{
+    margin-right: 10px;
+    transform: scale(1.3);
+}
