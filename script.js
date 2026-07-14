@@ -37,6 +37,7 @@ if(savedTheme){
         themeBtn.innerText = "☀️ Light Mode";
     }
 }
+updateProgress();
 };
 function welcomeUser() {
     alert("Welcome to GrowEveryday 🌱");
@@ -196,6 +197,11 @@ function startTimer(){
 
             time--;
 
+            if(time <= 0){
+
+                timerRunning = false;
+            }
+
             let minutes =
             Math.floor(time / 60);
 
@@ -219,7 +225,38 @@ function startTimer(){
         localStorage.setItem("habit3",h3);
         localStorage.setItem("habit4",h4);
         alert("Habits Saved ✅");
+
+        updateProgress();
     }
 
+function updateProgress(){
 
+    let completed = 0;
 
+    if(document.getElementById("habit1").checked){
+
+        completed++;
+    }
+
+    if(document.getElementById("habit2").checked){
+
+        completed++;
+    }
+    if(document.getElementById("habit3").checked){
+
+        completed++;
+    }
+    if(document.getElementById("habit4").checked){
+
+        completed++;
+    }
+        let percent = (completed / 4) * 100;
+
+document.getElementById("habitProgress").style.width =
+percent + "%";
+
+document.getElementById("progressText").innerText =
+percent + "%";
+   
+    
+}
