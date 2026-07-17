@@ -62,10 +62,13 @@ It comes from what you do consistently."
         <div class="cards">
         <div class="card">
             <h2>☀️ Good Morning, Sameer!</h2>
+            <p id="todayDate"></p>
+            <p id="liveClock">00:00:00</p>
             <p>आज का लक्ष्य:</p>
             <p>Learn HTML for 30 Minutes</p>
             <p>💧 Water : 0/8 Glass</p>
             <p>🔥 Streak : 1day</p>
+            
         </div>
         <div class="card">
             <div class="icon">💧</div>
@@ -115,6 +118,30 @@ It comes from what you do consistently."
 
                   ▶️ Start Timer
             </button>
+            <button onclick="pauseTimer()">
+                ⏸ Pause
+            </button>
+            <button onclick="resetTimer()">
+               🔄 Reset 
+            </button>
+        </div>
+
+
+        <div class="card">
+
+            <h2>📝 My Tasks</h2>
+
+            <input
+            type="text"
+            id="taskInput"
+            placeholder="Enter new task">
+
+            <button onclick="addTask()">
+                ➕ Add Task  
+            </button>
+
+            <ul id="taskList">
+            </ul>
         </div>
         <div class="card">
 

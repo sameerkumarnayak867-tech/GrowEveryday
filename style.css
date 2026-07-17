@@ -343,3 +343,76 @@ input[type="checkbox"]{
     color: darkgreen;
     margin-top: 15px;
 }
+
+#taskInput{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #c8e6c9;
+    font-size: 16px;
+}
+
+#taskList{
+    margin-top: 20px;
+    list-style: none;
+}
+#taskList li{
+    background: #dff6dd;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.dark #taskList li{
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+#taskInput{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #c8e6c9;
+    font-size: 16px;
+    background: white;
+    color: black;
+}
+
+.dark label{
+    color: white;
+}
+
+.dark p{
+    color: white;
+}
+
+.dark textarea::placeholder{
+    color: #bbbbbb;
+}
+
+.dark input[type="checkbox"]{
+    accent-color: #7cfc98;
+}
+
+.dark #progressText{
+    color: #7cfc98;
+}
+
+.dark .progress{
+    background: #444;
+}
+
+.dark .progress-fill{
+    background: #7cfc98;
+}
+
+.dark input[type="text"]{
+    background: #2a2a2a;
+    color: white;
+    border: 2px solid #7cfc98;
+}
+
+.dark input[type="text"]::placeholder{
+    color: #bbbbbb;
+}

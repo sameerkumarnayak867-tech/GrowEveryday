@@ -23,6 +23,8 @@ window.onload = function(){
     document.getElementById("habit4").checked =
     localStorage.getItem("habit4") === "true";
 
+    
+
 let savedTheme =
 localStorage.getItem("theme");
 
@@ -38,6 +40,13 @@ if(savedTheme){
     }
 }
 updateProgress();
+
+let today = new Date();
+
+document.getElementById("todayDate").innerText =
+today.toDateString();
+
+showTime();
 };
 function welcomeUser() {
     alert("Welcome to GrowEveryday 🌱");
@@ -183,7 +192,11 @@ let time = 1500;
 
 let timerRunning = false;
 
+let timer;
+
 function startTimer(){
+
+   
 
     if(timerRunning){
         return;
@@ -191,7 +204,7 @@ function startTimer(){
 
     timerRunning = true;
 
-    setInterval(function(){
+    timer = setInterval(function(){
 
         if(timerRunning){
 
@@ -209,7 +222,7 @@ function startTimer(){
             time % 60;
 
             document.getElementById("timer").innerText =
-            minutes + ":" + seconds;
+            minutes + ":" + String(seconds).padStart(2,"0");
         }
     },1000);
     }
@@ -259,4 +272,50 @@ document.getElementById("progressText").innerText =
 percent + "%";
    
     
+}
+
+ function pauseTimer(){
+        timerRunning = false;
+        clearInterval(timer);
+    }
+
+    function resetTimer(){
+        clearInterval(timer);
+        timerRunning = false;
+        time = 1500;
+        document.getElementById("timer").innerText = "25:00";
+    }
+function showTime() {
+
+    let now = new Date();
+
+    document.getElementById("liveClock").innerText =
+    now.toLocaleTimeString();
+}
+setInterval(showTime, 1000);
+
+function addTask(){
+
+    let input =
+    document.getElementById("taskInput");
+
+    let task =
+    input.value;
+
+    if(task === ""){
+
+        alert("Please Enter a Task");
+
+        return;
+    }
+
+    let li =
+    document.createElement("li");
+
+    li.innerText = task;
+
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
+
 }
