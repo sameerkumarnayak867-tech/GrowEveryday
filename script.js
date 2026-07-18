@@ -47,6 +47,8 @@ document.getElementById("todayDate").innerText =
 today.toDateString();
 
 showTime();
+
+loadTasks();
 };
 function welcomeUser() {
     alert("Welcome to GrowEveryday 🌱");
@@ -294,28 +296,120 @@ function showTime() {
 }
 setInterval(showTime, 1000);
 
+
 function addTask(){
 
-    let input =
-    document.getElementById("taskInput");
+    console.log("Step 1");
 
-    let task =
-    input.value;
+
+    let input = document.getElementById("taskInput");
+
+    console.log("Step 2");
+
+    let task = input.value.trim();
+
+    console.log("Task =", task);
 
     if(task === ""){
-
         alert("Please Enter a Task");
-
         return;
     }
 
-    let li =
-    document.createElement("li");
+    let li = document.createElement("li");
 
-    li.innerText = task;
+    console.log("Step 3");
+
+    li.textContent = task;
+
+    let deleteBtn = document.createElement("button");
+
+deleteBtn.innerText = "❌";
+
+deleteBtn.onclick = function(event){
+
+    event.stopPropagation();
+
+    li.remove();
+
+    saveTasks();
+
+};
+
+li.appendChild(deleteBtn);
+
+saveTasks();
+
+    console.log("Step 4");
 
     document.getElementById("taskList").appendChild(li);
 
+    console.log("Step 5");
+
     input.value = "";
+
+    saveTasks();
+}
+
+function saveTasks(){
+
+    let tasks=[];
+
+    document.querySelectorAll("#taskList li").forEach(function(li){
+
+        tasks.push({
+
+            text: li.childNodes[0].textContent.trim(),
+
+            completed: li.classList.contains("completed")
+
+        });
+
+    });
+
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+
+}
+function loadTasks(){
+
+    let tasks =
+    JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.forEach(function(task){
+
+        let li = document.createElement("li");
+
+        li.textContent = task.text;
+
+        if(task.completed){
+            li.classList.add("completed");
+        }
+
+        li.onclick = function(){
+
+            li.classList.toggle("completed");
+
+            saveTasks();
+
+        };
+
+        let deleteBtn = document.createElement("button");
+
+        deleteBtn.innerText = "❌";
+
+        deleteBtn.onclick = function(event){
+
+            event.stopPropagation();
+
+            li.remove();
+
+            saveTasks();
+
+        };
+
+        li.appendChild(deleteBtn);
+
+        document.getElementById("taskList").appendChild(li);
+
+    });
 
 }
