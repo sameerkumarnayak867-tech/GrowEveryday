@@ -413,3 +413,23 @@ function loadTasks(){
     });
 
 }
+
+let input = document.getElementById("taskInput");
+
+input.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+   addTask();
+
+    }
+
+});
+
+function updateTaskCount(){
+    let totalTasks =
+    document.querySelectorAll("#taskList li").length;
+
+    document.getElementById("taskTitle").innerText =
+    "📝 My Tasks (" + totalTasks + ")";
+}
