@@ -321,6 +321,19 @@ function addTask(){
 
     li.textContent = task;
 
+    li.ondblclick = function(){
+
+        let newTask = prompt("Edit Task", li.childNodes[0].textContent);
+
+        if(newTask !== null && newTask.trim() !== ""){
+
+            li.childNodes[0].textContent = newTask;
+
+            saveTasks();
+
+        }
+    };
+
     let deleteBtn = document.createElement("button");
 
 deleteBtn.innerText = "❌";
@@ -380,6 +393,19 @@ function loadTasks(){
 
         li.textContent = task.text;
 
+        li.ondblclick = function(){
+
+            let newTask = prompt("Edit Task", li.childNodes[0].textContent);
+
+            if(newTask !== null && newTask.trim() !== ""){
+
+                li.childNodes[0].textContent = newTask;
+
+                saveTasks();
+
+            }
+        };
+
         if(task.completed){
             li.classList.add("completed");
         }
@@ -432,4 +458,13 @@ function updateTaskCount(){
 
     document.getElementById("taskTitle").innerText =
     "📝 My Tasks (" + totalTasks + ")";
+}
+
+function clearAllTasks(){
+
+    let answer = confirm("Delete All Tasks?");
+
+    if(answer){
+       document.getElementById("taskList").innerHTML = ""; 
+    }
 }
