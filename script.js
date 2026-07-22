@@ -331,8 +331,32 @@ function addTask(){
 
             saveTasks();
 
+            updateTaskCount();
+
         }
     };
+
+    let editBtn = document.createElement("button");
+
+    editBtn.innerText = "✏️";
+
+    editBtn.onclick = function(event){
+
+        event.stopPropagation();
+
+        let newTask = prompt(
+            "Edit Task",
+            li.childNodes[0].textContent
+        );
+
+        if(newTask !== null && newTask.trim() !== ""){
+
+            li.childNodes[0].textContent =
+            newTask;
+
+            saveTasks();
+        }
+    }
 
     let deleteBtn = document.createElement("button");
 
@@ -347,6 +371,8 @@ deleteBtn.onclick = function(event){
     saveTasks();
 
 };
+
+li.appendChild(editBtn);
 
 li.appendChild(deleteBtn);
 
@@ -418,6 +444,30 @@ function loadTasks(){
 
         };
 
+        let editBtn = document.createElement("button");
+
+editBtn.innerText = "✏️";
+
+editBtn.onclick = function(event){
+
+    event.stopPropagation();
+
+    let newTask = prompt(
+        "Edit Task",
+        li.childNodes[0].textContent
+    );
+
+    if(newTask !== null && newTask.trim() !== ""){
+
+        li.childNodes[0].textContent =
+        newTask;
+
+        saveTasks();
+
+    }
+
+};
+
         let deleteBtn = document.createElement("button");
 
         deleteBtn.innerText = "❌";
@@ -430,12 +480,17 @@ function loadTasks(){
 
             saveTasks();
 
+            updateTaskCount();
+
         };
+
+        li.appendChild(editBtn);
 
         li.appendChild(deleteBtn);
 
         document.getElementById("taskList").appendChild(li);
 
+        updateTaskCount();
     });
 
 }
